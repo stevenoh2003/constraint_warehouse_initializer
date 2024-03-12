@@ -1,0 +1,14 @@
+<launch>
+　<rosparam file="$(find warehouse_database)/config/database_config.yaml" command="load"/>
+
+  <arg name="reset" default="false"/>
+  <arg name="moveit_warehouse_database_path" default="$(find warehouse_database)/test_mongo" />
+
+  <group ns="torobo">
+    <include file="$(find torobo_moveit_config)/launch/warehouse.launch">
+      <arg name="moveit_warehouse_database_path" value="$(arg moveit_warehouse_database_path)" />
+    </include>
+
+    <node if="$(arg reset)" name="$(anon moveit_default_db_reset)" type="set_constraint" pkg="warehouse_database" respawn="false" output="screen" />
+  </group>
+</launch>

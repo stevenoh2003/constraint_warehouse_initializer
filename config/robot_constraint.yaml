@@ -1,0 +1,14 @@
+reset_constraints: false
+constraints:
+  - type: "orientation"
+    constraint_name: "test"
+    link_name: "ee_link"
+    move_group: "move_group"
+
+    orientation_y: -0.7071068
+    orientation_z: 0.0
+    orientation_w: 0.7071068
+    absolute_x_axis_tolerance: 0.01
+    absolute_y_axis_tolerance: 0.01
+    absolute_z_axis_tolerance: 0.01
+    weight: 1.0
